@@ -1,6 +1,9 @@
-/**
- * @author trixta
- * @version 1.2
+/*
+ * @Author: 田想兵
+ * @Date: 2021-04-12 13:47:27
+ * @LastEditTime: 2021-04-13 19:04:52
+ * @github: https://github.com/tianxiangbing/jScrollPane
+ * @Contact: 55342775@qq.com
  */
 (function($){
 

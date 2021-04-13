@@ -1,12 +1,10 @@
-/*!
- * Scripts for the demo pages on the jScrollPane website.
- *
- * You do not need to include this script or use it on your site.
- *
- * Copyright (c) 2010 Kelvin Luck
- * Dual licensed under the MIT or GPL licenses.
+/*
+ * @Author: 田想兵
+ * @Date: 2021-04-12 13:47:27
+ * @LastEditTime: 2021-04-13 19:04:35
+ * @github: https://github.com/tianxiangbing/jScrollPane
+ * @Contact: 55342775@qq.com
  */
-
 $(function()
 {
 	// Copy the pages javascript sourcecode to the display block on the page for easy viewing...

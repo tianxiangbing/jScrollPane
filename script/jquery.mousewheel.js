@@ -1,6 +1,9 @@
-/*!
- * jQuery Mousewheel 3.1.13
- * Copyright OpenJS Foundation and other contributors
+/*
+ * @Author: 田想兵
+ * @Date: 2021-04-12 13:47:27
+ * @LastEditTime: 2021-04-13 18:56:44
+ * @github: https://github.com/tianxiangbing/jScrollPane
+ * @Contact: 55342775@qq.com
  */
 
 (function(root, factory) {

@@ -1,10 +1,10 @@
 /*
- * CSS Styles that are needed by jScrollPane for it to operate correctly.
- *
- * Include this stylesheet in your site or copy and paste the styles below into your stylesheet - jScrollPane
- * may not operate correctly without them.
+ * @Author: 田想兵
+ * @Date: 2021-04-12 13:47:27
+ * @LastEditTime: 2021-04-13 19:05:02
+ * @github: https://github.com/tianxiangbing/jScrollPane
+ * @Contact: 55342775@qq.com
  */
-
 .jspContainer
 {
 	overflow: hidden;
