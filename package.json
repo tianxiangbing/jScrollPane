@@ -19,7 +19,8 @@
   "main": "script/jquery.jscrollpane.min.js",
   "homepage": "https://github.com/vitch/jScrollPane#readme",
   "scripts": {
-    "build": "grunt"
+    "build": "grunt",
+    "start":"grunt serve"
   },
   "dependencies": {
     "jquery": "^3.5.1"

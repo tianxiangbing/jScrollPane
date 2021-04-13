@@ -173,7 +173,7 @@
                     });
                     // TODO: Deal with where width/ height is 0 as it probably means the element is hidden and we should
                     // come back to it later and check once it is unhidden...
-                    paneWidth = elem.innerWidth() + originalPaddingTotalWidth;
+                    paneWidth = elem.innerWidth() //+ originalPaddingTotalWidth;
                     paneHeight = elem.innerHeight();
 
                     elem.width(paneWidth);
@@ -186,7 +186,9 @@
                         })
                         .append(pane)
                         .appendTo(elem);
-
+                    if(settings.autoHide){
+                        container.addClass('jspAutoHide');
+                    }
                     /*
 					// Move any margins from the first and last children up to the container so they can still
 					// collapse with neighbouring elements as they would before jScrollPane
@@ -479,8 +481,12 @@
                 scrollbarWidth = settings.verticalGutter + verticalTrack.outerWidth();
 
                 // Make the pane thinner to allow for the vertical scrollbar
-                pane.width(paneWidth - scrollbarWidth - originalPaddingTotalWidth);
-
+                // pane.width(paneWidth)
+                if(settings.autoHide){
+                    pane.width(paneWidth);
+                }else{
+                    pane.width(paneWidth - scrollbarWidth - originalPaddingTotalWidth);
+                }
                 // Add margin to the left of the pane if scrollbars are on that side (to position
                 // the scrollbar on the left or right set it's left or right property in CSS)
                 try {
@@ -581,6 +587,10 @@
                     pane.width(container.outerWidth() - originalPaddingTotalWidth + 'px');
                 }
                 contentHeight = pane.outerHeight();
+                if(settings.autoHide){
+                    horizontalTrackHeight = horizontalTrack ? horizontalTrack.outerHeight():0;
+                    contentHeight = pane.outerHeight() - horizontalTrackHeight;
+                }
                 percentInViewV = contentHeight / paneHeight;
 
                 if (isScrollableH) {
@@ -898,6 +908,10 @@
                     isAtRight = horizontalDragPosition == dragMaxX,
                     percentScrolled = destX / dragMaxX,
                     destLeft = -percentScrolled * (contentWidth - paneWidth);
+                if(settings.autoHide){
+                    var verticalTrackWidth = verticalTrack? verticalTrack.outerWidth():0
+                    destLeft = -percentScrolled * (contentWidth - paneWidth - verticalTrackWidth);
+                }
 
                 if (wasAtLeft != isAtLeft || wasAtRight != isAtRight) {
                     wasAtLeft = isAtLeft;

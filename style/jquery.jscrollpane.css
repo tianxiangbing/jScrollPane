@@ -16,19 +16,36 @@
 	position: absolute;
 }
 
+.jspContainer.jspAutoHide:hover .jspVerticalBar,.jspContainer.jspAutoHide:hover .jspHorizontalBar{
+	/* display: block; */
+	opacity: 0.8;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-ms-transition: all 1s;
+	-o-transition: all 1s;
+	transition: all 1s;
+}
 .jspVerticalBar
 {
-	background: red;
+	background: #000;
 	height: 100%;
 	position: absolute;
 	right: 0;
 	top: 0;
 	width: 16px;
 }
+.jspAutoHide .jspVerticalBar,.jspAutoHide .jspHorizontalBar{
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-ms-transition: all 1s;
+	-o-transition: all 1s;
+	transition: all 1s;
+	opacity: 0;
+} 
 
 .jspHorizontalBar
 {
-	background: red;
+	background: #000;
 	bottom: 0;
 	height: 16px;
 	left: 0;
@@ -54,11 +71,13 @@
 
 .jspDrag
 {
-	background: #bbd;
+	background: #000;;
 	cursor: pointer;
 	left: 0;
 	position: relative;
 	top: 0;
+	opacity: .8;
+	border-radius: 15px;
 }
 
 .jspHorizontalBar .jspTrack,
@@ -70,13 +89,14 @@
 
 .jspArrow
 {
-	background: #50506d;
+	background: #000;
 	cursor: pointer;
         direction: ltr;
 	display: block;
 	margin: 0;
 	padding: 0;
 	text-indent: -20000px;
+	opacity: .8;
 }
 
 .jspDisabled
