@@ -3,21 +3,14 @@
  * Copyright OpenJS Foundation and other contributors
  */
 
-( function( factory ) {
-    if ( typeof define === "function" && define.amd ) {
-
-        // AMD. Register as an anonymous module.
-        define( [ "jquery" ], factory );
-    } else if ( typeof exports === "object" ) {
-
-        // Node/CommonJS style for Browserify
-        module.exports = factory;
-    } else {
-
-        // Browser globals
-        factory( jQuery );
-    }
-} )( function( $ ) {
+(function(root, factory) {
+	//amd
+	if (typeof exports === 'object') { //umd
+		module.exports = factory();
+	} else {
+		root.jScrollPane = factory();
+	}
+})(this, function() {
 
     var toFix  = [ "wheel", "mousewheel", "DOMMouseScroll", "MozMousePixelScroll" ],
         toBind = ( "onwheel" in window.document || window.document.documentMode >= 9 ) ?

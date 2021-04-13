@@ -1,80 +1,20 @@
-/*!
- * jScrollPane - v2.2.3-rc.1 - 2020-06-26
- * http://jscrollpane.kelvinluck.com/
- *
- * Copyright (c) 2014 Kelvin Luck
- * Copyright (c) 2017-2020 Tuukka Pasanen
- * Dual licensed under the MIT or GPL licenses.
- *
- * SPDX-License-Identifier: MIT
- * SPDX-License-Identifier: GPL-2.0-or-later
+/*
+ * @Author: 田想兵
+ * @Date: 2021-04-12 13:47:27
+ * @LastEditTime: 2021-04-13 18:56:44
+ * @github: https://github.com/tianxiangbing/jScrollPane
+ * @Contact: 55342775@qq.com
  */
 
-// Script: jScrollPane - cross browser customisable scrollbars
-//
-// Project Home - http://jscrollpane.kelvinluck.com/
-// GitHub       - http://github.com/vitch/jScrollPane
-// CND          - https://cdnjs.com/libraries/jScrollPane
-// Source       - https://cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.2.1/script/jquery.jscrollpane.min.js
-// (Minified)   - https://cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.2.1/script/jquery.jscrollpane.js
-// CSS          - https://cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.2.1/style/jquery.jscrollpane.css
-// (Minified)   - https://cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.2.1/style/jquery.jscrollpane.min.css
-//
-// About: License
-//
-// Copyright (c) 2017 Kelvin Luck
-// Copyright (c) 2017-2020 Tuukka Pasanen
-// Dual licensed under the MIT or GPL Version 2 licenses.
-// https://github.com/vitch/jScrollPane/blob/master/MIT-LICENSE.txt
-// https://github.com/vitch/jScrollPane/blob/master/GPL-LICENSE.txt
-//
-// About: Examples
-//
-// All examples and demos are available through the jScrollPane example site at:
-// http://jscrollpane.kelvinluck.com/
-//
-// About: Support and Testing
-//
-// This plugin is tested on the browsers below and has been found to work reliably on them. If you run
-// into a problem on one of the supported browsers then please visit the support section on the jScrollPane
-// website (http://jscrollpane.kelvinluck.com/) for more information on getting support. You are also
-// welcome to fork the project on GitHub if you can contribute a fix for a given issue.
-//
-// jQuery Versions - jQuery 3.x. Although script should work from jQuery 1.1 and up but no promises are made.
-// Browsers Tested - See jQuery browser support page: https://jquery.com/browser-support/. Only modern
-//                   browsers are supported.
-//
-// About: Release History
-//
-// 2.2.3-rc.1  - (2020-06-26) Fix Github Issue #376 and #377 with jQuery 3.5 and upcoming jQuery 4.0
-//                            Small change with setting stickToBottom. Updated other scripts to
-//                             jQuery 3.x.
-// 2.2.2       - (2020-05-06) Just update NPM dependecies to remove vunerbilities
-// 2.2.1       - (2018-09-27) No changed applied to release so same as RC1/2
-// 2.2.1-rc.2  - (2018-06-14) Sucked NPM release have to make new Release.. this is 2018!
-// 2.2.1-rc.1  - (2018-06-14) Fixed CSSLint warnings which can lead CSS problems in
-//                            production! Please report a issue if this breaks something!
-//                            * Merged:
-//                            - #360 Register to globally available version of jQuery
-// 2.2.0       - (2018-05-16) No changes to RC1
-// 2.2.0-rc.1  - (2018-04-28) Merged resize sensor to find out size changes of screen and
-//                            again little bit tuned this to support more npm goodies.
-//                            * Merged:
-//                            - #361 Event based reinitialising - Resize Sensor
-//                            - #359 Use npm scripts and local dev dependencies to build the project
-
-(function (factory) {
-    if (typeof define === 'function' && define.amd) {
-        // AMD. Register as an anonymous module.
-        define(['jquery'], factory);
-    } else if (typeof exports === 'object') {
-        // Node/CommonJS style for Browserify
-        module.exports = factory(jQuery || require('jquery'));
+(function (root, factory) {
+    //amd
+    if (typeof exports === 'object') {
+        //umd
+        module.exports = factory();
     } else {
-        // Browser globals
-        factory(jQuery);
+        root.jScrollPane = factory();
     }
-})(function ($) {
+})(this, function () {
     $.fn.jScrollPane = function (settings) {
         // JScrollPane "class" - public methods are available through $('selector').data('jsp')
         function JScrollPane(elem, s) {
@@ -173,7 +113,7 @@
                     });
                     // TODO: Deal with where width/ height is 0 as it probably means the element is hidden and we should
                     // come back to it later and check once it is unhidden...
-                    paneWidth = elem.innerWidth() //+ originalPaddingTotalWidth;
+                    paneWidth = elem.innerWidth(); //+ originalPaddingTotalWidth;
                     paneHeight = elem.innerHeight();
 
                     elem.width(paneWidth);
@@ -186,7 +126,7 @@
                         })
                         .append(pane)
                         .appendTo(elem);
-                    if(settings.autoHide){
+                    if (settings.autoHide) {
                         container.addClass('jspAutoHide');
                     }
                     /*
@@ -482,9 +422,9 @@
 
                 // Make the pane thinner to allow for the vertical scrollbar
                 // pane.width(paneWidth)
-                if(settings.autoHide){
+                if (settings.autoHide) {
                     pane.width(paneWidth);
-                }else{
+                } else {
                     pane.width(paneWidth - scrollbarWidth - originalPaddingTotalWidth);
                 }
                 // Add margin to the left of the pane if scrollbars are on that side (to position
@@ -587,8 +527,8 @@
                     pane.width(container.outerWidth() - originalPaddingTotalWidth + 'px');
                 }
                 contentHeight = pane.outerHeight();
-                if(settings.autoHide){
-                    horizontalTrackHeight = horizontalTrack ? horizontalTrack.outerHeight():0;
+                if (settings.autoHide) {
+                    horizontalTrackHeight = horizontalTrack ? horizontalTrack.outerHeight() : 0;
                     contentHeight = pane.outerHeight() - horizontalTrackHeight;
                 }
                 percentInViewV = contentHeight / paneHeight;
@@ -908,8 +848,8 @@
                     isAtRight = horizontalDragPosition == dragMaxX,
                     percentScrolled = destX / dragMaxX,
                     destLeft = -percentScrolled * (contentWidth - paneWidth);
-                if(settings.autoHide){
-                    var verticalTrackWidth = verticalTrack? verticalTrack.outerWidth():0
+                if (settings.autoHide) {
+                    var verticalTrackWidth = verticalTrack ? verticalTrack.outerWidth() : 0;
                     destLeft = -percentScrolled * (contentWidth - paneWidth - verticalTrackWidth);
                 }
 

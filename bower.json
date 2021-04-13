@@ -16,6 +16,6 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/vitch/jScrollPane.git"
+		"url": "git+https://github.com/tianxiangbing/jScrollPane.git"
 	}
 }
